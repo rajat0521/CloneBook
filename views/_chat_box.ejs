@@ -1,0 +1,24 @@
+<!-- CHANNGE :: create the code for the chatbox -->
+<% if(locals.user){ %>
+
+    <div id="user-chat-box">
+        
+        <ul id="chat-messages-list">
+            
+            <li class="other-message">
+                <span>Other's Message</span>
+            </li>  
+            
+            <li class="self-message">
+                <span>Self Message</span>
+            </li>
+        
+        </ul>
+
+        <div id="chat-message-input-container">
+            <input id="chat-message-input" placeholder="type message here" type="text">
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+<% } %>

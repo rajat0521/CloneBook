@@ -1,0 +1,39 @@
+<li>
+    <p>
+        <% if(locals.user && locals.user.id==comment.user.id){ %>
+            <small>
+                <a href="/comments/destroy/<%= comment.id %>">Delete</a>
+            </small>
+        <% } %>
+        
+        <%= comment.content %>
+        
+
+        <!-- making the likes button in when the user is signed in, it will show the number of likes in a link form so to increase or decrease the number of likes -->
+        <!-- and if the user is logged out then it will only sjow the number of like in a simple p tag or a h tag -->
+
+        <small>
+            <% if(locals.user){ %>
+                <button>
+                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%= comment._id %>&type=Comment" style="text-decoration: none;">
+                        
+                        <%= comment.likes.length %> Likes
+
+                    </a>
+                </button>
+            <% }else{ %>
+                
+                <%= comment.likes.length %> Likes
+
+            <% } %>
+        </small>    
+
+
+        <br>
+        <small>
+            <b>
+                <%= comment.user.name %>
+            </b>
+        </small>
+    </p>
+</li>
