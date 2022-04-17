@@ -71,6 +71,7 @@ const env=require('./config/enviourment');
 
 //in this we are just connectinng or telling the server to search static files here like css files and imges and java script files in it
 app.use(express.static(env.asset_path));
+// app.use(express.static('./assets'));
 
 //make the upload path avilable to the browser
 app.use('/uploads',express.static(__dirname + '/uploads'));
@@ -95,6 +96,7 @@ app.use(session({
     name: 'codeial',
     //hange the secret before deployment in production mode
     secret: env.session_cookie_key,
+    // secret: 'blahsomething',
     saveUninitialized: false,
     resave: false,
     cookie: {
