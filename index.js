@@ -29,7 +29,7 @@ const MongoStore = require('connect-mongo');
 
 //SASS-syntaically awesome style sheets in which u can u write css codes very efficiently
 //in simply ways it helps to write code in css mor faster and in a cleaner way
-const sassMiddleWare=require('node-sass-middleware');
+// const sassMiddleWare=require('node-sass-middleware');
 
 
 //flash is a library used to show pop up messages kinda stuff
