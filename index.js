@@ -49,15 +49,6 @@ console.log('chat server is listening on port 5000');
 const path=require('path');
 
 
-// app.use(sassMiddleWare({
-//     src:'./assets/SCSS',
-//     dest:'./assets/css',
-//     debug:true,
-//     outputStyle:'extended',
-//     prefix:'/css' 
-// }));
-
-
 //its basically  middleware of express
 app.use(express.urlencoded());
 
