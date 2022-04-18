@@ -2,7 +2,7 @@ const { MongoGridFSChunkError } = require('mongodb');
 const User = require('../models/user');
 const path=require('path');
 const fs=require('fs');
-const queue=require('../config/kue');
+// const queue=require('../config/kue');
 const passwordEmailWorker=require('../mailers/password_mailer');
 const { findById } = require('../models/user');
 

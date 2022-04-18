@@ -24,16 +24,19 @@ module.exports.create=async function(req,res){
             comment = await comment.populate('user','name email password').execPopulate();
             // console.log('after populate comment',comment); used this line for self understandings but then commented out
 
-            // commentsMailer.newComment(comment); used this line for self understandings but then commented out
+             
+            // used this line for self understandings ......send emails directly and not queing them
+            commentsMailer.newComment(comment);
             
-            let job= queue.create('emails', comment).save(function(err){
-                if(err){
-                    console.log('error in creating a queue',err);
-                    return;
-                }
+            //we can also send email by first queing it and then sending it 
+            // let job= queue.create('emails', comment).save(function(err){
+            //     if(err){
+            //         console.log('error in creating a queue',err);
+            //         return;
+            //     }
 
-                console.log('job enqueued',job.id);
-            })
+            //     console.log('job enqueued',job.id);
+            // })
 
             if (req.xhr){
                 
