@@ -9,10 +9,12 @@ class ToggleLike{
     toggleLike(){
         $(this.toggler).click(function(e){
             e.preventDefault();
+            //prevent default i.e. a tag from diong get request
             let self = this;
-
-            // this is a new way of writing ajax which you might've studied, it looks like the same as promises
+            console.log('selffffffffff',self);
+            // this is a new way of writing ajax which we have studied, it looks like the same as promises
             $.ajax({
+                //here we are setting a tag to send post request
                 type: 'POST',
                 url: $(self).attr('href'),
             })

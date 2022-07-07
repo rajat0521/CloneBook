@@ -1,15 +1,175 @@
-#home-container{
-    display: flex;
-    height: 100%;
+body{    
+    background: linear-gradient(90deg, #000000f2, #3498db, #000000f2);
+} 
+h1{
+    font-size: 50px;
+    text-align: center;
+    border: 2px solid rgb(255, 255, 255);
+    width:85%;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 16px 0px #000000ba;
+    z-index: 1;
 }
-#feed-posts{
-    width: 70%;
-    padding: 10px;
-    border-left: 2px solid lightgrey;
+.home_container{
+    display: flex;
+}
+.posts_section{
+    width: 60%;
+    margin-top: 50px;
+}
+.posts_heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.add_product{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.add_product form input{
+    background: transparent;
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    background: #0d3e87af;
+}
+.new_post_form{
+    width: 85%;
+    border: 2px solid white;
+    box-shadow: 0px 5px 16px 0px #000000ba;
+    z-index: 1;
+    border-radius: 10px;
+}
+#image{
+    font-size: 21px;
+    background: transparent;
+    color: white;
+    margin-left: 5%;
+    margin-top: 4%;
+}
+.caption{
+    font-size: x-large;
+    margin-left: 5%;
+    background: transparent;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid white;
+    margin-top: 36px;
+    width: 90%;
+}
+::placeholder{
+    color: white;
+}
+.post_button{
+    font-size: large;
+    width: 250px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-left: 12%;
+    background: #0d3e87af;
+    box-shadow: 0px 5px 16px 0px #000000ba;
+}
+.posts_list_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add_and_people_section{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.add_section{
+    width: 32%;
+    height: 297px;
+    position: fixed;
+    margin-left: 3%;
+    overflow: hidden;
+    margin-top: 85px;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 0px 5px 16px 0px #000000ba; 
+}
+.chat_section{
+    width: 0%;
+    height: 0%;
+    position: fixed;
+    margin-left: 3%;
+    overflow: hidden;
+    margin-top: 85px;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0px 5px 16px 0px #000000ba; 
+}
+.people_you_may_know_section {
+    width: 32%;
+    min-height: 343px;
+    position: fixed;
+    top: 52%;
+    margin-left: 3%;
+    left: 60%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0px 5px 16px 0px #000000ba;
+}
+.people_you_may_know_section h3{
+    box-sizing: border-box;
+    font-size: x-large;
+    text-align: center;
+    border-bottom: 2px solid white;
+    color: white;
+    border-radius: 10px;
+    padding-bottom: 18px;
+}
+.user_proflie_link{
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
     
 }
-#user-friends{
-    width: 30%;
-    padding: 10px;
-    border-left: 2px solid lightgrey;
+
+/* media queries for phone*/
+
+@media screen and (max-width: 1100px){
+    .add_and_people_section{
+        width: 0px;
+        overflow: hidden;
+    }
+    .add_section{
+        width: 0px;
+        overflow: hidden;
+        border: none;
+    }
+    .people_you_may_know_section{
+        width: 0px;
+        overflow: hidden;
+        border: none;
+    }
+    .posts_section{
+        width: 100%;
+    }
+    #image{
+        width: 50%;
+    }
+    .post_button{
+        font-size: large;
+        width: 150px;
+        /* margin-bottom: 20px; */
+        margin-left: 5%;
+        
+    }
+}
+/* for tab */
+@media screen and (max-width: 2000px){
+    
+
+}
+@media screen and (max-width: 2500px){
+    
 }

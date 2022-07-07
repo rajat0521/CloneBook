@@ -1,23 +1,96 @@
-
-
 <link rel="stylesheet" href="/css/user_profile.css">
-        
-<img src="<%= user.avatar %>" alt="<%= user.name %>" width="100" height="100" srcset="" style="border-radius: 50%;">  
+
+<div class="bg">
 
 
-
-<% if(user.id==profile_user.id){ %>
-    <!--if user matches then show the form -->
-    <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
-
-        <input type="text" name="name" id="" placeholder="Your name" value="<%= profile_user.name %>" required>
-        <input type="email" name="email" id="" placeholder="Your email" value="<%= profile_user.email %>" required>
+    <div class="image_and_details">
+        <div class="user_avatar">
+            <% if(user.avatar){ %>
+                <img src="<%= user.avatar %>" alt="/images/user_avatar.jfif">  
+            <% } else{ %>
+                <img src="/images/icon-5359553_1280.webp" alt="<%= user.name %>" height="100%" width="100%">  
+            <% } %> 
+    
+            <% if(user.id!=profile_user.id){ %>
+                <h2> Name: <%= profile_user.name %>  </h2>
+                <h2> Email: <%= profile_user.email %>  </h2>
                 
-        <input type="file" name="avatar" placeholder="Profile-Picture">
-        <input type="submit" value="Update">
-    </form>
-<% } else{ %>
-    <!-- else show only the profile info-->
-    <p>  <%= profile_user.name %>  </p>
-    <p>  <%= profile_user.email %>  </p>    
-<% } %>       
+                <button class="add_friend_button" onclick="">
+                    <a class="toggle-friend-button"  href="/addFriend/<%= profile_user.id %>/<%= user.id %>"> <%= buttonName %> </a>
+                </button>
+            <% } %>
+        </div>
+        <div class="update_credentials">
+            <% if(user.id==profile_user.id){ %>
+                <!--if user matches then show the form -->
+                <h1>
+                    Update Profile
+                </h1>
+                <form action="/users/update/<%= profile_user.id %>" enctype="multipart/form-data" method="POST">
+            
+                    <input type="text" name="name" id="" placeholder="Your name" value="<%= profile_user.name %>" required>
+                    <input type="email" name="email" id="" placeholder="Your email" value="<%= profile_user.email %>" required>
+                            
+                    <input type="file" name="avatar" placeholder="Profile-Picture">
+                    <input type="submit" value="Update">
+                </form>
+            <% } %>  
+        </div>
+
+        
+    </div>
+
+    <div class="posts_list_container">
+        <% for(post of all_posts){ %> 
+            <% if(post.user._id==profile_user.id){ %>
+                <%- include('_post') -%>
+            <% } %>
+        <% } %>    
+    </div>
+    
+</div>
+
+
+
+
+<!-- importing the scripts for creating the comments -->
+<script src="/js/home_post_comments.js" ></script>
+<script src="/js/home_posts.js"></script>
+
+
+
+<!-- import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
+<script src="/js/toggle_likes.js"></script>
+<script>
+    $('.toggle-like-button').each(function(){
+        let self = this;
+        let toggleLike = new ToggleLike(self);
+    });
+</script>
+
+
+<!-- script for add friend button -->
+<script src="/js/toggle_friend.js"></script>
+
+
+<!-- script for toggle add friend button -->
+<script>
+    // here we will toggle each element present which have class toggle-like-button..... we have we each because we will have more than one like buttons in one page and all will have same class  
+    $('.toggle-friend-button').each(function(){
+        let self = this;
+        let toggleFriend = new ToggleFriend(self);
+    });
+</script>
+
+<script>
+    // here we will toggle each element present which have class toggle-like-button..... we have we each because we will have more than one like buttons in one page and all will have same class  
+    $('.toggle-friend-button2').each(function(){
+        let self = this;
+        let toggleFriend = new ToggleFriend(self);
+    });
+</script>
+
+
+
+
+      

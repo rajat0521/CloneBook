@@ -1,0 +1,90 @@
+.comment_list{
+    text-decoration: none;
+}
+.comment_list {
+    color: white;
+}
+
+.commment{
+    display: flex;
+    margin-bottom: 11px;
+}
+
+
+
+/* Dropdown Button */
+.comment_dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 13px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+
+  
+/* Dropdown button on hover & focus */
+.comment_dropbtn:hover, .comment_dropbtn:focus {
+    background-color: #0e3b59;
+}
+  
+/* The container <div> - needed to position the dropdown content */
+.comment_dropdown {
+    display: flex;
+    flex-direction: row;
+}
+  
+/* Dropdown Content (Hidden by Default) */
+.comment_dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.show {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #2f65bb;
+}
+/* Links inside the dropdown */
+.comment_dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+/* Change color of dropdown links on hover */
+.comment_dropdown-content a:hover {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+  
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  margin-left: 102px;
+  background: #ffffffd4;
+}
+
+
+/* media queries for phone*/
+
+@media screen and (max-width: 1100px){
+    
+}
+/* for tab */
+@media screen and (max-width: 2000px){
+    
+
+}
+@media screen and (max-width: 2500px){
+    
+}

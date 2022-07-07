@@ -2,15 +2,11 @@
 
     <nav>
         <div class="mini-logo">
-            <p>
-                <a href='/'>
-                    codeial
-                </a>
-            </p>
+            <h2>CloneBook</h2>
         </div>
 
 
-        <div class="auth-links">
+        <!-- <div class="auth-links">
             <ul>
                 <% if (locals.user){ %>
                     <li>
@@ -33,7 +29,20 @@
         
                 <% } %>
             </ul>
-        </div>
+        </div> -->
+
+        <% if (locals.user){ %>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="/home">Home</a>
+                    <a href="/users/profile/<%= user.id %>/<%= locals.user.id %>">Profile</a>
+                    <a href="/chat/<%= user.id %>">Friends</a>
+                    <a href="/chat/<%= user.id %>">Chat</a>
+                    <a href="/users/sign-out">Log Out</a>
+                </div>
+            </div>
+        <% } %>
     </nav>
 
 

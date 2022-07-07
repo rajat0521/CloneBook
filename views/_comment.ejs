@@ -1,39 +1,48 @@
+<link rel="stylesheet" href="/css/_comment.css">
+
 <li>
-    <p>
-        <% if(locals.user && locals.user.id==comment.user.id){ %>
-            <small>
+    <div class="comment_dropdown">
+        <button onclick="myFunction('<%= comment.id %>')" class="comment_dropbtn">   <%= comment.content %>  </button>
+        <div id="comment_myDropdown_<%= comment.id %>" class="comment_dropdown-content">
+            <!-- making the likes button in when the user is signed in, it will show the number of likes in a link form so to increase or decrease the number of likes -->
+            <!-- and if the user is logged out then it will only sjow the number of like in a simple p tag or a h tag -->
+            <% if(locals.user && locals.user.id==comment.user._id){ %>        
                 <a href="/comments/destroy/<%= comment.id %>">Delete</a>
-            </small>
-        <% } %>
-        
-        <%= comment.content %>
-        
-
-        <!-- making the likes button in when the user is signed in, it will show the number of likes in a link form so to increase or decrease the number of likes -->
-        <!-- and if the user is logged out then it will only sjow the number of like in a simple p tag or a h tag -->
-
-        <small>
-            <% if(locals.user){ %>
-                <button>
-                    <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%= comment._id %>&type=Comment" style="text-decoration: none;">
-                        
-                        <%= comment.likes.length %> Likes
-
-                    </a>
-                </button>
-            <% }else{ %>
-                
-                <%= comment.likes.length %> Likes
-
             <% } %>
-        </small>    
-
-
-        <br>
-        <small>
-            <b>
+            <a class="toggle-like-button" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%= comment._id %>&type=Comment" style="text-decoration: none;">        
+                <%= comment.likes.length %> Likes
+            </a>
+            <a class="" data-likes="<%= comment.user.name %>" href="/users/profile/<%= comment.user._id %>/<%= locals.user.id %>" style="text-decoration: none;">        
                 <%= comment.user.name %>
-            </b>
-        </small>
-    </p>
+            </a>
+        </div>
+    </div>
 </li>
+
+
+<!-- <div class="commment">
+
+    <span class="comment_content">
+        <%= comment.content %>
+    </span>
+        
+    <span class="comment_delete_button">
+        
+    </span>
+
+    
+
+    <span class="comment_like_button">
+        <button>
+            
+        </button>
+    </span>
+
+    <small>
+           
+    </small>
+
+</div> -->
+
+
+<script src="/js/_comment.js"></script>

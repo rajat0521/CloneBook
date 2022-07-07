@@ -9,8 +9,8 @@ const development={
         port: 587,
         secure: false,
         auth: {
-            user: 'rajatbarwal_2k19pe049@dtu.ac.in',
-            pass: '2k19pe049032002'
+            user: 'www.rajatbarwal@gmail.com',
+            pass: 'rajatbarwal'
         }
     },
     google_client_id:"686308977571-rf5j452nvbef3ft4si2b6jej86ubo206.apps.googleusercontent.com",
@@ -42,5 +42,5 @@ const production={
 }
 
 
-module.exports= eval(process.env.CODEIAL_ENVIOURMENT)== undefined ? development : eval(process.env.CODEIAL_ENVIOURMENT);
-// module.exports=production;
+// module.exports= eval(process.env.CODEIAL_ENVIOURMENT)== undefined ? development : eval(process.env.CODEIAL_ENVIOURMENT);
+module.exports=development;

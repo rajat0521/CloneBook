@@ -2,17 +2,61 @@ const { MongoGridFSChunkError } = require('mongodb');
 const User = require('../models/user');
 const path=require('path');
 const fs=require('fs');
+const Post=require('../models/post');
+const Friends=require('../models/friendships');
 // const queue=require('../config/kue');
 const passwordEmailWorker=require('../mailers/password_mailer');
-const { findById } = require('../models/user');
+// const { findById } = require('../models/user');
 
-module.exports.profile = function(req, res){
-    User.findById(req.params.id,function(err,user){
+module.exports.profile = async function(req, res){
+    try{ 
+        
+        let posts = await Post.find({})
+        .sort('-createdAt')
+        
+        .populate({
+            path:'comments',
+            populate:{
+                path:'user'
+            },
+            // populate:{
+            //     path:"likes"
+            // }
+        })
+        .populate('user')
+        .populate('likes');
+
+        let profileUser = await User.findById(req.params.profileUserId);
+        let visiterUser = await User.findById(req.params.visiterUserId);
+        let friendIndex;
+        let buttonName='Remove Friend';
+
+
+        
+        friendIndex= await profileUser.friends.findIndex(user=> user == req.params.visiterUserId);
+
+        if(friendIndex==-1){buttonName='Add Friend';}
+
         return res.render('user_profile', {
             title: 'User Profile',
-            profile_user:user
+            profile_user:profileUser,
+            all_posts:posts,
+            buttonName : buttonName
         })
-    });
+
+    }catch(err){
+        req.flash('error',err);
+        console.log(err);
+        return res.redirect('back');
+    }
+
+    // User.findById(req.params.id,function(err,user){
+    //     return res.render('user_profile', {
+    //         title: 'User Profile',
+    //         profile_user:user
+    //     })
+    // });
+    
     
 }
 
@@ -70,7 +114,7 @@ module.exports.signIn = function(req, res){
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
     }
-    return res.render('user_sign_in', {
+    return res.render('MainPage', {
         title: "Codeial | Sign In"
     })
 }
@@ -102,7 +146,7 @@ module.exports.create = function(req, res){
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
     req.flash('success','Logged In Successfully');
-    return res.redirect('/');
+    return res.redirect('/home');
 }
 
 

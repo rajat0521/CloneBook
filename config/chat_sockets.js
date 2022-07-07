@@ -1,5 +1,8 @@
 
+//the server side 
+
 module.exports.chatSockets = function(socketServer){
+    
     let io = require('socket.io')(socketServer);
 
     io.sockets.on('connection', function(socket){
@@ -19,6 +22,7 @@ module.exports.chatSockets = function(socketServer){
         });
 
         socket.on('send_message',function(data){
+            console.log('message recieved',data);
             io.in(data.chatroom).emit('recieve_message',data);
         });
         

@@ -1,3 +1,10 @@
+// client side i.e. us
+
+
+let message=document.getElementById('send-message').value;
+        // console.log(message);
+
+
 class ChatEngine{
     constructor(chatBoxId, userEmail){
         this.chatBox = $(`#${chatBoxId}`);
@@ -6,6 +13,7 @@ class ChatEngine{
         this.socket = io.connect('http://localhost:5000' , { transports : ['websocket'] });
         
         if (this.userEmail){
+            console.log(chatBoxId, userEmail, "Client side code");
             this.connectionHandler();
         }
 
@@ -22,7 +30,7 @@ class ChatEngine{
 
             self.socket.emit('join_room',{
                 user_email:self.userEmail,
-                chatroom:'codeial'
+                chatroom:'clonebook'
             });
 
             self.socket.on('user_joined',function(data){
@@ -30,15 +38,17 @@ class ChatEngine{
             });
         });
 
+        
+
 
         $('#send-message').click(function(){
             let msg = $('#chat-message-input').val();
-
+            console.log(msg);
             if(msg!=''){
                 self.socket.emit('send_message',{
                     message: msg,
                     user_email: self.userEmail,
-                    chatroom: 'codeial'
+                    chatroom: 'clonebook'
                 });
             }
         });

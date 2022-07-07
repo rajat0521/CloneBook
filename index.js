@@ -73,6 +73,18 @@ app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
 
+//required multer for storing images
+var multer = require('multer'); 
+var storage = multer.diskStorage({ 
+    destination: (req, file, cb) => { 
+        cb(null, 'uploads') 
+    }, 
+    filename: (req, file, cb) => { 
+        cb(null, file.fieldname + '-' + Date.now()) 
+    } 
+}); 
+var upload = multer({ storage: storage });
+
 
 
 // set up the view engine

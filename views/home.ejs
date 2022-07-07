@@ -1,59 +1,78 @@
 <link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" href="/css/chat_box.css">
 
-<div id="home-container">
-    <section id="feed-posts">
-        <h4>Posts</h4>
-        <% if(locals.user){ %>
-        <form action="posts/create " id="new-post-form" method="POST">
-            <textarea name="content" id="" cols="30" rows="4" placeholder="Type Here..." required ></textarea>
-            <input type="submit" value="post">
-        </form>
-        <% } %>
-    
-        <div id="posts-list-container">
-            <ul>
-                <% for(post of posts){ %>
-                   
-                    <%- include('_post') -%>
-    
-                <% } %>    
-            </ul>
+<% if(locals.user){ %>
+
+    <div class="home_container">
+
+        <div class="posts_section">
+
+            <div class="posts_heading">
+                <h1>Posts</h1>
+            </div>
+
+            <div class="add_product">
+                <form action="/posts/create " class="new_post_form" method="POST" enctype="multipart/form-data" >
+                    
+                    <textarea name="content" class="caption" cols="30" rows="1" placeholder="Add your caption here" required></textarea>
+                    <input type="file" id="image" name="image" value="" required>
+                    <input type="submit" value="Add New Post" class="post_button">
+                </form>
+            </div>
+
+            <div class="posts_list_container">
+                    <% for(post of posts){ %> 
+                        <%- include('_post') -%>
+                    <% } %>    
+            </div>
+
         </div>
-    </section>
     
-    
-    <section id="user-friends">
-        <h4>Friends</h4>
-        <% for(u of all_users){ %>
-            <p>
-                <a href="/users/profile/<%= u.id %>"> <%= u.name %> </a>
-            </p>
-        <% } %>
-    </section>
+        <div class="add_and_people_section" id="ads">
+            <div class="add_section">
+                <%- include('_ads') -%>
+            </div>
+                
+            </div> -->
 
-    <%- include('_chat_box') -%>
-</div>
+            <div class="people_you_may_know_section">
+                <h3>People You May Know</h3>
+                <% for(u of all_users){ %>
+                    <div>
+                        <p>
+                            <a href="/users/profile/<%= u.id %>/<%= locals.user.id %>" class="user_proflie_link"> <%= u.name %> </a>
+                        </p>
+                    </div>
+                <% } %>
+            </div>
+
+        </div>
+
+    </div>
+<% } %>
+
+<p>
+    
+</p>
+
 
 <!-- importing the scripts for creating the comments -->
 <script src="/js/home_post_comments.js" ></script>
 <script src="/js/home_posts.js"></script>
 
-<!-- import the script file for toggle likes, also run it over for the already present posts and comments on the page --> -->
+
+
+<!-- import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
 <script src="js/toggle_likes.js"></script>
 <script>
+    // here we will toggle each element present which have class toggle-like-button..... we have we each because we will have more than one like buttons in one page and all will have same class  
     $('.toggle-like-button').each(function(){
         let self = this;
         let toggleLike = new ToggleLike(self);
     });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
 
-<script src="/js/chat_engine.js"></script>
 
-<% if(locals.user){ %>
-    <script>
-        new ChatEngine('user-chat-box', '<%= locals.user.email %>');
-    </script>
-<% } %>
+
+<!-- Script for ads -->
+<script src="/js/ads.js"></script>

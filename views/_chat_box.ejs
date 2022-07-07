@@ -1,6 +1,6 @@
-<!-- CHANNGE :: create the code for the chatbox -->
-<% if(locals.user){ %>
+<link rel="stylesheet" href="/css/chat_box.css">
 
+<div class="chat_and_friens_section">
     <div id="user-chat-box">
         
         <ul id="chat-messages-list">
@@ -14,11 +14,38 @@
             </li>
         
         </ul>
-
+    
         <div id="chat-message-input-container">
-            <input id="chat-message-input" placeholder="type message here" type="text">
+            <input id="chat-message-input" placeholder="Type Message Here" type="text">
             <button id="send-message">Send</button>
         </div>
+    
     </div>
+    
+    <div class="friends_section">
+        <h1>Friends</h1>
+        <ul>
+            <% for(friend of chat_user.friends){ %>
+                <li style="color: white; margin: 20px;">
+                    <a href="/users/profile/<%= friend._id %>/<%= locals.user.id %>" class="friend_name">
+                        <%= friend.name %>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+        
+    </div>
+</div>
 
-<% } %>
+
+<!-- Script for socket -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+
+
+<!-- Script for chat engine -->
+<script src="/js/chat_engine.js"></script>
+
+<script>
+    new ChatEngine('user-chat-box', '<%= chat_user.name %>');
+</script> 
