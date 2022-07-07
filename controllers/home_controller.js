@@ -39,7 +39,7 @@ module.exports.home = async function(req, res){
             all_users:users
         });
     }catch(err){
-        console.log('Error',err);
+        // console.log('Error',err);
         return;
     }
     
@@ -51,7 +51,7 @@ module.exports.deleteAccount = async function(req,res){
     try{
         
     }catch(err){
-        console.log('Error in deleteing Account',err);
+        // console.log('Error in deleteing Account',err);
         return;
     }
 }

@@ -10,7 +10,7 @@ class ToggleFriend{
             e.preventDefault();
             //prevent default i.e. a tag from diong get request
             let self = this;
-            console.log('selffffffffff in friend',self);
+            // console.log('selffffffffff in friend',self);
             // this is a new way of writing ajax which we have studied, it looks like the same as promises
             $.ajax({
                 //here we are setting a tag to send post request
@@ -29,7 +29,7 @@ class ToggleFriend{
 
             })
             .fail(function(errData) {
-                console.log('error in completing the request',errData);
+                // console.log('error in completing the request',errData);
             });
         
         });

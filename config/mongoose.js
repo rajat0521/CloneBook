@@ -12,7 +12,7 @@ mongoose.connect(`mongodb+srv://rajat_2103:rajatbarwal@cluster0.gincy.mongodb.ne
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Error connecting to MongoDB: "));
 db.once("open", function () {
-  console.log("Connected successfully to MongoDb");
+  // console.log("Connected successfully to MongoDb");
 });
 
 

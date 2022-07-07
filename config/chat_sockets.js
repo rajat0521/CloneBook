@@ -6,15 +6,15 @@ module.exports.chatSockets = function(socketServer){
     let io = require('socket.io')(socketServer);
 
     io.sockets.on('connection', function(socket){
-        console.log('new connection received', socket.id);
+        // console.log('new connection received', socket.id);
 
         socket.on('disconnect', function(){
-            console.log('socket disconnected!');
+            // console.log('socket disconnected!');
         });
 
         
         socket.on('join_room',function(data){
-            console.log('joining request recieved',data);
+            // console.log('joining request recieved',data);
 
             socket.join(data.chatroom);
 
@@ -22,7 +22,7 @@ module.exports.chatSockets = function(socketServer){
         });
 
         socket.on('send_message',function(data){
-            console.log('message recieved',data);
+            // console.log('message recieved',data);
             io.in(data.chatroom).emit('recieve_message',data);
         });
         

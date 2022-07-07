@@ -30,7 +30,7 @@ router.post('/create',passport.checkAuthentication , upload.single('image') , (r
     }
     Post.create(obj, (err, item) => {
         if (err) {
-            console.log(err);
+            // console.log(err);
         }
         else {
             // item.save();

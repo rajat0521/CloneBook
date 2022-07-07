@@ -14,9 +14,9 @@ exports.newPassword = (user) => {
 
     }, (err, info) => {
         if (err){
-            console.log('Error in sending mail', err);
+            // console.log('Error in sending mail', err);
             return;
         }
-        console.log('Email sent successfully');
+        // console.log('Email sent successfully');
     });
 }

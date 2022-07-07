@@ -13,7 +13,7 @@ class ChatEngine{
         this.socket = io.connect('http://localhost:5000' , { transports : ['websocket'] });
         
         if (this.userEmail){
-            console.log(chatBoxId, userEmail, "Client side code");
+            // console.log(chatBoxId, userEmail, "Client side code");
             this.connectionHandler();
         }
 
@@ -25,7 +25,7 @@ class ChatEngine{
         let self=this;
 
         this.socket.on('connect', function(){
-            console.log('connection established using sockets...!');
+            // console.log('connection established using sockets...!');
             
 
             self.socket.emit('join_room',{
@@ -34,7 +34,7 @@ class ChatEngine{
             });
 
             self.socket.on('user_joined',function(data){
-                console.log('a user joined',data);
+                // console.log('a user joined',data);
             });
         });
 
@@ -43,7 +43,7 @@ class ChatEngine{
 
         $('#send-message').click(function(){
             let msg = $('#chat-message-input').val();
-            console.log(msg);
+            // console.log(msg);
             if(msg!=''){
                 self.socket.emit('send_message',{
                     message: msg,
@@ -54,7 +54,7 @@ class ChatEngine{
         });
 
         self.socket.on('recieve_message',function(data){
-            console.log('message recieved',data.message);
+            // console.log('message recieved',data.message);
 
 
             let newMessage=$('<li>');

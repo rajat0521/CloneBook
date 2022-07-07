@@ -11,7 +11,7 @@ class ToggleLike{
             e.preventDefault();
             //prevent default i.e. a tag from diong get request
             let self = this;
-            console.log('selffffffffff',self);
+            // console.log('selffffffffff',self);
             // this is a new way of writing ajax which we have studied, it looks like the same as promises
             $.ajax({
                 //here we are setting a tag to send post request
@@ -20,7 +20,7 @@ class ToggleLike{
             })
             .done(function(data) {
                 let likesCount = parseInt($(self).attr('data-likes'));
-                console.log(likesCount);
+                // console.log(likesCount);
                 if (data.data.deleted == true){
                     likesCount -= 1;
                     
@@ -34,7 +34,7 @@ class ToggleLike{
 
             })
             .fail(function(errData) {
-                console.log('error in completing the request');
+                // console.log('error in completing the request');
             });
             
 

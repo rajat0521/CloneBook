@@ -4,7 +4,7 @@ module.exports.mainPage = async function(req, res){
             title: "CloneBook"
         });
     }catch(error){
-        console.log("Error is : ", error);
+        // console.log("Error is : ", error);
         return;
     }
 }

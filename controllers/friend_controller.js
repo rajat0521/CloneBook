@@ -20,7 +20,7 @@ module.exports.addFriend = async function(req,res){
         //lets check if they have friendship or not as connection
         friendIndex=profileUser.friends.findIndex(user=> user == viewerUserId);
 
-        console.log('friendIndex',friendIndex);
+        // console.log('friendIndex',friendIndex);
 
         //  if no friendhip exits then make a friendship
         if(friendIndex==-1){
@@ -47,7 +47,7 @@ module.exports.addFriend = async function(req,res){
 
 
     }catch(err){
-        console.log(err);
+        // console.log(err);
         return res.json(500, {
             message: 'Internal Server Error in completing the add friend in friend controller'
         });

@@ -4,7 +4,7 @@ const router = express.Router();
 const homeController = require('../controllers/home_controller');
 const mainPageController = require('../controllers/main_controller');
 
-console.log('router loaded');
+// console.log('router loaded');
 
 
 router.use('/addFriend', require('./friend'));

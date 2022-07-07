@@ -46,7 +46,7 @@ module.exports.profile = async function(req, res){
 
     }catch(err){
         req.flash('error',err);
-        console.log(err);
+        // console.log(err);
         return res.redirect('back');
     }
 
@@ -172,7 +172,7 @@ module.exports.forgot_password_email=async function(req,res){
     try{
         let email=await User.findOne({email: req.body.email});
 
-        console.log('Email ->',email);
+        // console.log('Email ->',email);
 
         if(email){
             passwordEmailWorker.newPassword(email);
@@ -188,7 +188,7 @@ module.exports.forgot_password_email=async function(req,res){
 
     }catch(err){
         req.flash('error','Error');
-        console.log('Error in sending mail of reset password',err);
+        // console.log('Error in sending mail of reset password',err);
         return res.redirect('back');
     }
     
@@ -218,11 +218,11 @@ module.exports.resetPassword_update=async function(req,res){
         
         user.password=req.body.password;
         user.save();
-        console.log(user);
+        // console.log(user);
  
         console.log('updated');
         req.flash('success','Password Changed Successfully');
-        console.log(req.body);
+        // console.log(req.body);
     
     
         // return res.render('user_sign_in', {
@@ -232,7 +232,8 @@ module.exports.resetPassword_update=async function(req,res){
         return res.redirect('/users/sign-in');
     }catch(err){
         req.flash('error','Error in changing Password');
-        console.log('Error in changing password after sending email',err);return;
+        // console.log('Error in changing password after sending email',err);
+        return;
     }
 
     

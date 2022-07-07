@@ -14,7 +14,7 @@ module.exports.chatbox = async function(req, res){
         
     }catch(err){
         req.flash('error',err);
-        console.log(err);
+        // console.log(err);
         return res.redirect('back');
     }
 

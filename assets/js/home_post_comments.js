@@ -48,7 +48,7 @@ class PostComments{
                     }).show();
 
                 }, error: function(error){
-                    console.log(error.responseText);
+                    // console.log(error.responseText);
                 }
             });
 
@@ -105,7 +105,7 @@ class PostComments{
                         
                     }).show();
                 },error: function(error){
-                    console.log(error.responseText);
+                    // console.log(error.responseText);
                 }
             });
 
