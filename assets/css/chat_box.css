@@ -78,15 +78,14 @@ body{
   color: white;
 }
 .friends_section{
-  position: fixed;
-  border: 2px solid white;
-  height: 82%;
-  width: 30%;
-  margin-left: 65%;
-  margin-top: 94px;
-  background: transparent;
-  border-radius: 10px;
-  box-shadow: 0px 5px 16px 0px #000000ba;
+    border: 2px solid white;
+    height: 80%;
+    width: 23%;
+    margin-top: 94px;
+    margin-right: 5%;
+    background: transparent;
+    border-radius: 10px;
+    box-shadow: 0px 5px 16px 0px #000000ba;
 }
 .friends_section h1{
   text-align: center;
