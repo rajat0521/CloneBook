@@ -108,10 +108,10 @@ h1{
 }
 .people_you_may_know_section {
     width: 32%;
-    min-height: 343px;
+    min-height: 300px;
     position: fixed;
     top: 52%;
-    margin-left: 3%;
+    margin-left: 2%;
     left: 60%;
     overflow: hidden;
     border-radius: 10px;
