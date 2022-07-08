@@ -43,7 +43,7 @@ const customMware=require('./config/middleware');
 //socket.io is used to make chatting engine 
 const chatServer=require('http').Server(app);
 const chatSockets=require('./config/chat_sockets').chatSockets(chatServer);
-chatServer.listen(5000);
+chatServer.listen(port);
 // console.log('chat server is listening on port 5000');
 
 const path=require('path');
