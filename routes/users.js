@@ -26,7 +26,7 @@ router.post('/create-session', passport.authenticate(
 router.get('/sign-out',usersController.destroySession);
 
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
-router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/sign-in'}), usersController.createSession);
+router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/'}), usersController.createSession);
 
 //a get request of page of forgot password which shows to enter email and submit the email on which the link is send
 router.get('/forgot-password',usersController.forgot_password);
