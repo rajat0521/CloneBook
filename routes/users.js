@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-
+const mainPageController = require('../controllers/main_controller');
 const usersController = require('../controllers/users_controller');
 
 router.post('/update/:id',passport.checkAuthentication ,usersController.update);
@@ -11,7 +11,7 @@ router.get('/profile/:profileUserId/:visiterUserId',passport.checkAuthentication
 
 
 router.get('/sign-up', usersController.signUp);
-// router.get('/sign-in', usersController.signIn);
+router.get('/sign-in',mainPageController.mainPage);
 
 
 router.post('/create', usersController.create);
