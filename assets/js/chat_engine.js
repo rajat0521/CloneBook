@@ -10,7 +10,7 @@ class ChatEngine{
         this.chatBox = $(`#${chatBoxId}`);
         this.userEmail = userEmail;
 
-        this.socket = io.connect('https://clonebook-app.herokuapp.com/' , { transports : ['websocket'] });
+        this.socket = io.connect('http://clonebook-app.herokuapp.com/' , { transports : ['websocket'] });
         
         if (this.userEmail){
             // console.log(chatBoxId, userEmail, "Client side code");
