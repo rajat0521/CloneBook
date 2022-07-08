@@ -15,7 +15,7 @@ const development={
     },
     google_client_id:"686308977571-rf5j452nvbef3ft4si2b6jej86ubo206.apps.googleusercontent.com",
     google_client_secret:"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",
-    google_call_back_url:"http://clonebook-app.herokuapp.com/users/auth/google/callback",
+    google_call_back_url:"https://clonebook-app.herokuapp.com/users/auth/google/callback",
     jwt_secret:'codeial'
     
 }
