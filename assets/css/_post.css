@@ -51,8 +51,8 @@
     width: 50%;
 }
 .image_container img{
-    height: 400px;
-    width: 400px;
+    height: 95%;
+    width: 95%;
     margin-bottom: 20px;
     border-radius: 15px;
 }
@@ -102,6 +102,7 @@
     font-size: medium;
     margin-left: 10px;
     height: 30px;
+    width: 35%;
     box-shadow: 0px 5px 16px 0px #000000ba;
 }
 .comment_form{
