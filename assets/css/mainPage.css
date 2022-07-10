@@ -118,12 +118,11 @@ h2{
 
 @media screen and (max-width: 1100px){
     .bg{
-        flex-direction: column;
         justify-content: center;
     }
     .cb_logo{
-        height:50%;
-        width:50%;
+        height: 0;
+        width: 0;
     }
     .cb_logo h1{
         font-size:0px;
