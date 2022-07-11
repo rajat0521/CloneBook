@@ -8,8 +8,8 @@ const development={
         host: 'smtp.gmail.com',
         secure: false,
         auth: {
-            user: 'dalmikchand_2k19ea018@dtu.ac.in',
-            pass: 'Dal@081219998'
+            user: 'www.rajatbarwal@gmail.com',
+            pass: 'vwssomutxnywwkzi'
         }
     },
     google_client_id:"686308977571-rf5j452nvbef3ft4si2b6jej86ubo206.apps.googleusercontent.com",
