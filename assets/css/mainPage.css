@@ -1,6 +1,6 @@
 body,html{
     height: 100%;
-    background: linear-gradient(90deg, #ce092b, #2b67be);
+    background: linear-gradient(90deg, #000000f2, #3498db, #000000f2);
 }
 .bg{
     display: flex;
